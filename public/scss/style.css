@@ -1,0 +1,237 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../Roboto-Regular.ttf);
+}
+
+:root {
+  --color-green: #30C7C6;
+  --color-orange: #F2994A;
+  --color-black: #4A4A4A;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+body {
+  /* background-image: url(../background.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.round-btn {
+  background-color: var(--color-orange);
+  border: none;
+  border-radius: 20px;
+  height: 36px;
+  width: 100px;
+  font-size: 16px;
+  float: right;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.page {
+  background: #F2F2F2E5;
+  margin: 22px 131px;
+  height: calc(100vh - 44px);
+  padding: 12px 25px;
+}
+
+.page .logo {
+  width: 48px;
+  height: 48px;
+}
+
+/* ***************top************ */
+.top {
+  background: var(--color-green);
+  border-radius: 10px;
+  display: flex;
+}
+
+.top>div {
+  width: 50%;
+}
+
+.top .left {
+  padding: 0 10px;
+}
+
+.top .left .title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+}
+
+.top .left #levelId {
+  width: 250px;
+}
+
+.top .left .label {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.top .right {}
+
+.top .right .title {
+  background-color: var(--color-orange);
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+}
+
+.top .right button {}
+
+/* ***************top************ */
+
+/* ***************top1************ */
+.top1 {
+  background: var(--color-green);
+  border-radius: 10px;
+  display: none;
+}
+
+.top1>div {
+  width: 50%;
+}
+
+.top1 .left {}
+
+.top1 .left .title {
+  background-color: var(--color-orange);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+}
+
+
+.top1 .left .label {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.top1 .left .box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-evenly;
+  margin: 10px auto;
+}
+
+.top1 .left .box div {
+  width: 149px;
+  background-color: #ffffff;
+  margin: 5px;
+  padding: 8px;
+
+}
+
+.top1 .right {}
+
+.top1 .right .title {
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+}
+
+.top1 .right .content {
+  font-size: 16px;
+  margin: 20px 100px;
+}
+
+/* ***************top1************ */
+
+/************************bottom**********/
+.bottom {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom>div {
+  width: 27%;
+}
+
+.bottom .title {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bottom .left {
+  text-align: center;
+}
+
+.bottom .center .goal {
+  background-color: var(--color-green);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.bottom .center .items div {
+  background-color: var(--color-orange);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.bottom .right .form {
+  background-color: var(--color-green);
+  border-radius: 10px;
+  padding: 10px 50px;
+  display: inline-block;
+  width: 240px;
+}
+
+.bottom .right .form .label {
+  margin-top: 10px;
+}
+
+.bottom .right .form input,
+.bottom .right .form select {
+  width: 200px;
+  margin-top: 5px;
+}
+
+.bottom .right .form .type-activity {
+  display: none;
+}
+
+.bottom .right .form .type-bmr {
+  display: none;
+}
+
+
+/* ***************dialog********** */
+.goal-dialog {
+  display: none;
+  width: 360px;
+  background: #D9D9D9;
+  height: 140px;
+  border-radius: 10px;
+  padding: 20px;
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  box-shadow: 0px 0px 5px 1px #c2a7a7;
+}
+
+.goal-dialog .label {
+  display: inline-block;
+  width: 120px;
+}
+
+.goal-dialog>div {
+  margin-top: 5px;
+}

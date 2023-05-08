@@ -1,14 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.css" />
+    <link rel="stylesheet" href="scss/main.scss" />
+    <link rel="stylesheet" href="scss/style.css" />
 </head>
+
 <body>
-    <script>src="script.js"</script>
-    <h1>hello</h1>
+    <div class="goal-dialog">
+        <div>
+            <span class="label">Start Date:</span>
+            <input type="date" name="" id="startDateId">
+        </div>
+        <div>
+            <span class="label">End Date:</span>
+            <input type="date" name="" id="endDateId">
+        </div>
+        <div>
+            <span class="label">Target Value:</span>
+            <input type="text" name="" id="targetValueId">
+        </div>
+        <button class="round-btn" id="setId">Set</button>
+        <button class="round-btn" onclick="document.querySelector('.goal-dialog').style.display='none'">Close</button>
+    </div>
+
+    <div class="page">
+        <img class="logo" src="logo.png">
+
+        <div class="top">
+            <div class="left">
+                <div class="title">Calorie Calculator</div>
+                <form>
+                    <div>
+                        <span class="label">Your Age:</span>
+                        <input type="text" placeholder="Enter here" id="ageId" />
+                    </div>
+                    <div>
+                        <span class="label">Your Gender:</span>
+                        <input type="radio" name="gender" value="Male" checked />Male
+                        <input type="radio" name="gender" value="Female" />Female
+                    </div>
+                    <div>
+                        <span class="label">Height(cm):</span>
+                        <input type="text" placeholder="Enter here" id="heightId" />
+                    </div>
+                    <div>
+                        <span class="label">Weight(kg):</span>
+                        <input type="text" placeholder="Enter here" id="weightId" />
+                    </div>
+                    <div>
+                        <span class="label">Activity Level:</span>
+                        <select id="levelId">
+                            <option value="300">Sedentary little or no exercise</option>
+                            <option value="600">Light(1~3times a week)</option>
+                            <option value="900">Moderate. exercise 4-5 times/week</option>
+                            <option value="1200">Active: daily exercise or intense exercise 3-4 times/week</option>
+                            <option value="1500">Very Active. intense exercise 6-7 times/week</option>
+                            <option value="1800">Extra Active: very intense exercise daily, or physical job</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <div class="title">Results & Recommendations</div>
+                <div class="content">
+                    <pre style="text-align: center;margin-top: 20px;font-size: 12px;">
+The Calorie Calculator is based on Mifflin-St Jeor Equation:
+
+For men:
+BMR = 10W + 6.25H - 5A + 5
+For women:
+BMR = 10W + 6.25H - 5A - 161
+
+W= Weight
+H= Height
+A= Age
+                    </pre>
+                </div>
+                <button class="round-btn" id="calculateId">Calculate</button>
+            </div>
+        </div>
+
+        <div class="top1">
+            <div class="left">
+                <div class="title">Calorie Calculator</div>
+                <div class="box">
+                    <div>Weight Loss</div>
+                    <div id="weightLossId"></div>
+                    <div>Maintain Weight</div>
+                    <div id="maintainWeightId"></div>
+                    <div>Weight Gain</div>
+                    <div id="weightGainId"></div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title">Results & Recommendations</div>
+                <div class="content">
+                    The result displays a estimated daily calorie intake for the goal. When exceed the rate shown on screen, consult your doctor for advice. To set goal, tap or click on the “set goal”
+                    button.
+                </div>
+                <button class="round-btn" id="openGoalDialogId">Set Goal</button>
+            </div>
+        </div>
+
+
+        <!-- --------------------------------------------- -->
+        <div class="bottom">
+            <div class="left">
+                <div class="title">Calendar</div>
+                <input type="date">
+            </div>
+            <div class="center">
+                <div class="title">Date:28/4</div>
+                <div class="goal">
+                    <div>Goal: In-progress</div>
+                    <div>Target Calories: 2000</div>
+                    <div>Calories Burnt: 2100</div>
+                </div>
+                <div class="title">Details</div>
+                <div class="items">
+                    <div>BMR aaaaaa</div>
+                    <div>BMR aaaaaa</div>
+                    <div>BMR aaaaaa</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title">Add to day list:</div>
+                <div class="form">
+                    <div class="label">Type:</div>
+                    <select>
+                        <option>Meal</option>
+                        <option>Activity</option>
+                        <option>BMR</option>
+                    </select>
+
+                    <div class="type-meal">
+                        <select>
+                            <option>breakfast</option>
+                            <option>lunch</option>
+                            <option>dinner</option>
+                            <option>snack</option>
+                        </select>
+                        <div class="label">Food name:</div>
+                        <input type="text" name="" placeholder="Enter here">
+                        <div class="label">Calories:</div>
+                        <input type="text" name="" placeholder="Enter here">
+                    </div>
+
+                    <div class="type-activity">
+                        <div class="label">Activity:</div>
+                        <input type="text" name="" placeholder="Enter here">
+                        <div class="label">Calories:</div>
+                        <input type="text" name="" placeholder="Enter here">
+                    </div>
+
+                    <div class="type-bmr">
+                        <div class="label">Calories:</div>
+                        <input type="text" name="" placeholder="Enter here">
+                    </div>
+
+                    <button class="round-btn">+ Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
