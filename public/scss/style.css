@@ -4,19 +4,19 @@
 }
 
 :root {
-  --color-green: #30C7C6;
-  --color-orange: #F2994A;
-  --color-black: #4A4A4A;
+  --color-green: #30c7c6;
+  --color-orange: #f2994a;
+  --color-black: #4a4a4a;
 }
 
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 body {
-  /* background-image: url(../background.jpg); */
+  background-image: url(../background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -33,9 +33,14 @@ body {
   margin: 10px;
   cursor: pointer;
 }
+.delete-goal-btn,
+.delete-detail-btn {
+  cursor: pointer;
+  color: #ffffff;
+}
 
 .page {
-  background: #F2F2F2E5;
+  background: #f2f2f2e5;
   margin: 22px 131px;
   height: calc(100vh - 44px);
   padding: 12px 25px;
@@ -46,6 +51,37 @@ body {
   height: 48px;
 }
 
+.calendar {
+  border: 3px solid;
+  border-radius: 5px;
+}
+.calendar .month {
+  background-color: var(--color-orange);
+  text-align: center;
+}
+.calendar .month span {
+  width: 40%;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  margin: 5px;
+  padding: 2px;
+  border-radius: 10px;
+}
+.calendar .body {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.calendar .body div {
+  width: 24px;
+  height: 24px;
+  border: solid 3px var(--color-orange);
+  margin: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* ***************top************ */
 .top {
   background: var(--color-green);
@@ -53,7 +89,7 @@ body {
   display: flex;
 }
 
-.top>div {
+.top > div {
   width: 50%;
 }
 
@@ -77,7 +113,8 @@ body {
   line-height: 40px;
 }
 
-.top .right {}
+.top .right {
+}
 
 .top .right .title {
   background-color: var(--color-orange);
@@ -88,7 +125,8 @@ body {
   text-align: center;
 }
 
-.top .right button {}
+.top .right button {
+}
 
 /* ***************top************ */
 
@@ -99,11 +137,12 @@ body {
   display: none;
 }
 
-.top1>div {
+.top1 > div {
   width: 50%;
 }
 
-.top1 .left {}
+.top1 .left {
+}
 
 .top1 .left .title {
   background-color: var(--color-orange);
@@ -112,7 +151,6 @@ body {
   line-height: 47px;
   text-align: center;
 }
-
 
 .top1 .left .label {
   font-size: 20px;
@@ -132,10 +170,10 @@ body {
   background-color: #ffffff;
   margin: 5px;
   padding: 8px;
-
 }
 
-.top1 .right {}
+.top1 .right {
+}
 
 .top1 .right .title {
   color: var(--color-black);
@@ -158,7 +196,7 @@ body {
   justify-content: space-around;
 }
 
-.bottom>div {
+.bottom > div {
   width: 27%;
 }
 
@@ -172,6 +210,14 @@ body {
 .bottom .left {
   text-align: center;
 }
+.bottom .left .goal {
+  background-color: var(--color-orange);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
 
 .bottom .center .goal {
   background-color: var(--color-green);
@@ -179,11 +225,13 @@ body {
   padding: 20px;
 }
 
-.bottom .center .items div {
+.bottom .center .detail .item {
   background-color: var(--color-orange);
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .bottom .right .form {
@@ -212,12 +260,11 @@ body {
   display: none;
 }
 
-
 /* ***************dialog********** */
 .goal-dialog {
   display: none;
   width: 360px;
-  background: #D9D9D9;
+  background: #d9d9d9;
   height: 140px;
   border-radius: 10px;
   padding: 20px;
@@ -232,6 +279,6 @@ body {
   width: 120px;
 }
 
-.goal-dialog>div {
+.goal-dialog > div {
   margin-top: 5px;
 }

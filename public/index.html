@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="scss/main.scss" />
     <link rel="stylesheet" href="scss/style.css" />
+    <link rel="stylesheet" href="scss/mobile.css" />
 </head>
 
 <body>
@@ -100,7 +101,8 @@ A= Age
             <div class="right">
                 <div class="title">Results & Recommendations</div>
                 <div class="content">
-                    The result displays a estimated daily calorie intake for the goal. When exceed the rate shown on screen, consult your doctor for advice. To set goal, tap or click on the “set goal”
+                    The result displays a estimated daily calorie intake for the goal. When exceed the rate shown on screen, consult your
+                    doctor for advice. To set goal, tap or click on the “set goal”
                     button.
                 </div>
                 <button class="round-btn" id="openGoalDialogId">Set Goal</button>
@@ -112,27 +114,47 @@ A= Age
         <div class="bottom">
             <div class="left">
                 <div class="title">Calendar</div>
-                <input type="date">
+                <div class="calendar">
+                    <div class="month">
+                        <span>2023/Apr</span>
+                    </div>
+                    <div class="body">
+                        2222222222222
+                    </div>
+                </div>
+                <div class="title">Goal</div>
+                <div class="goal">
+                    <div>
+                        <div id="goal_start_date"></div>
+                        <div id="goal_end_date"></div>
+                        <div id="goal_value"></div>
+                    </div>
+                    <div class="delete-goal-btn">[x]</div>
+                </div>
             </div>
+
             <div class="center">
-                <div class="title">Date:28/4</div>
+                <div class="title">Date:<span id="render_today"></span></div>
                 <div class="goal">
                     <div>Goal: In-progress</div>
-                    <div>Target Calories: 2000</div>
-                    <div>Calories Burnt: 2100</div>
+                    <div>Target Calories: <span id="render_target_calorie"></span></div>
+                    <div>Today's Calories: <span id="render_today_calorie"></div>
                 </div>
                 <div class="title">Details</div>
-                <div class="items">
-                    <div>BMR aaaaaa</div>
-                    <div>BMR aaaaaa</div>
-                    <div>BMR aaaaaa</div>
+                <div class="detail">
+                    <div class="item">
+                        <div>BMR</div>
+                        <div>1111</div>
+                        <div class="delete-detail-btn">[x]</div>
+                    </div>
                 </div>
             </div>
+
             <div class="right">
                 <div class="title">Add to day list:</div>
                 <div class="form">
                     <div class="label">Type:</div>
-                    <select>
+                    <select onchange="changeType(this.value)">
                         <option>Meal</option>
                         <option>Activity</option>
                         <option>BMR</option>
@@ -140,30 +162,44 @@ A= Age
 
                     <div class="type-meal">
                         <select>
-                            <option>breakfast</option>
-                            <option>lunch</option>
-                            <option>dinner</option>
-                            <option>snack</option>
+                            <option>Breakfast</option>
+                            <option>Lunch</option>
+                            <option>Dinner</option>
+                            <option>Snack</option>
                         </select>
-                        <div class="label">Food name:</div>
-                        <input type="text" name="" placeholder="Enter here">
                         <div class="label">Calories:</div>
-                        <input type="text" name="" placeholder="Enter here">
+                        <input type="text" placeholder="Enter here">
                     </div>
+
 
                     <div class="type-activity">
                         <div class="label">Activity:</div>
-                        <input type="text" name="" placeholder="Enter here">
+                        <select>
+                            <option>Workout</option>
+                            <option>Golf</option>
+                            <option>Walking</option>
+                            <option>Kayaking</option>
+                            <option>Softball/Baseball</option>
+                            <option>Swimming</option>
+                            <option>Tennis</option>
+                            <option>Running</option>
+                            <option>Bicycling</option>
+                            <option>Football</option>
+                            <option>Basketball</option>
+                            <option>Soccer</option>
+                        </select>
                         <div class="label">Calories:</div>
-                        <input type="text" name="" placeholder="Enter here">
+                        <input type="text" placeholder="Enter here">
                     </div>
 
                     <div class="type-bmr">
                         <div class="label">Calories:</div>
-                        <input type="text" name="" placeholder="Enter here">
+                        <input type="text" placeholder="Enter here">
                     </div>
 
-                    <button class="round-btn">+ Add</button>
+                    <div>
+                        <button class="round-btn" onclick="addDetail()">+ Add</button>
+                    </div>
                 </div>
             </div>
         </div>

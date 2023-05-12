@@ -1,0 +1,49 @@
+@media screen and (max-width: 420px) {
+  .page {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
+    background-image: none;
+  }
+
+  .top,
+  .top1,
+  .bottom {
+    flex-direction: column;
+  }
+
+  .top > div,
+  .top1 > div,
+  .bottom > div {
+    width: 100%;
+  }
+
+  .top1 .left .box div {
+    width: 120px;
+  }
+
+  .bottom {
+    padding: 20px;
+  }
+
+  .bottom .right .form {
+    display: flex;
+    width: initial;
+    flex-direction: column;
+  }
+
+  select,
+  input {
+    height: 31px;
+  }
+
+  .goal-dialog {
+    width: initial;
+    top: 30%;
+    left: 5%;
+    right: 5%;
+    height: 170px;
+  }
+}
