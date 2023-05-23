@@ -10,7 +10,7 @@ function show(id, display = 'block') {
 
 var currentChooseDay = getNow() // 当前选择的天
 
-const CalorieData = {
+let CalorieData = {
     goal: {
         startDate: '2023-4-6',
         endDate: '2023-9-6',
@@ -21,6 +21,11 @@ const CalorieData = {
         { id: Date.now() - 20000, day: '2023-4-6', label: 'Lunch', calorie: 2000, flag: '+' },
         { id: Date.now(), day: '2023-5-6', label: 'Lunch', calorie: 3200, flag: '+' },
     ]
+}
+
+const str = localStorage.getItem("calorie_data")
+if(str){
+    CalorieData = JSON.parse(str)
 }
 
 
@@ -40,8 +45,8 @@ $('#calculateId').addEventListener('click', function () {
     }
 
     const maintainWeight = BMR + Number($('#levelId').value)
-    const weightLoss = maintainWeight * 0.8
-    const weightGain = maintainWeight * 1.2
+    const weightLoss = (maintainWeight * 0.8).toFixed(0)
+    const weightGain = (maintainWeight * 1.2).toFixed(0)
 
     $('#weightLossId').innerHTML = weightLoss + ' kcal/day'
     $('#maintainWeightId').innerHTML = maintainWeight + ' kcal/day'
@@ -104,22 +109,18 @@ function getNow() {
     const d = new Date()
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDay()
 }
+function getMonth(){
+    const d = new Date()
+    return d.getFullYear() + '-' + (d.getMonth() + 1)
+}
 
-function addDetail() {
-    if (CalorieData.currentType == 'Meal') {
-        CalorieData.details.push({
-            id: Date.now(),
-            day: getNow(),
-            label: $('.type-meal select').value,
-            calorie: $('.type-meal input').value,
-            flag: '+'
-        })
-    } else if (CalorieData.currentType == 'Activity') {
+$('#addDetail').addEventListener('click', function(){
+     if (CalorieData.currentType == 'Activity') {
         CalorieData.details.push({
             id: Date.now(),
             day: getNow(),
             label: $('.type-activity select').value,
-            calorie: $('.type-activity input').value,
+            calorie: Number($('.type-activity input').value),
             flag: '-'
         })
     } else if (CalorieData.currentType == 'BMR') {
@@ -127,14 +128,23 @@ function addDetail() {
             id: Date.now(),
             day: getNow(),
             label: 'BMR',
-            calorie: $('.type-bmr input').value,
+            calorie: Number($('.type-bmr input').value),
             flag: '-'
         })
-    }
+    }else {
+         CalorieData.details.push({
+             id: Date.now(),
+             day: getNow(),
+             label: $('.type-meal select').value,
+             calorie: Number($('.type-meal input').value),
+             flag: '+'
+         })
+     }
     render()
-}
+})
 
-// save goal 
+
+// save goal
 $('#setId').addEventListener('click', function () {
     hide('.goal-dialog')
 
@@ -194,20 +204,21 @@ function render() {
     }).join('')
 
     // 今天的卡路里数值展示
-    let burnt = 0
+    let todayCalorie = 0
     someDayDetail.forEach(x => {
         if (x.flag == '+') {
-            burnt += x.calorie
+            todayCalorie += x.calorie
         } else {
-            burnt -= x.calorie
+            todayCalorie -= x.calorie
         }
     })
-    $('#render_today_calorie').innerHTML = burnt
+    $('#render_today_calorie').innerHTML = todayCalorie
     $('#render_today').innerHTML = currentChooseDay
+    $('#render_month').innerHTML = getMonth()
 
 
-    // TODO save session backend
-
+    // save the data to the user's browser
+    localStorage.setItem("calorie_data", JSON.stringify(CalorieData))
 }
 
 render()
