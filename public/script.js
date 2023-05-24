@@ -8,7 +8,7 @@ function show(id, display = 'block') {
     $(id).style.display = display
 }
 
-var currentChooseDay = getNow() // 当前选择的天
+var currentChooseDay = getNow() // current selected date
 
 let CalorieData = {
     goal: {
@@ -67,7 +67,7 @@ $('.delete-goal-btn').addEventListener('click', function () {
     render()
 })
 
-// 删除detail
+// delete detail
 $('.bottom .center .detail').addEventListener('click', e => {
     if (e.target.className == 'delete-detail-btn') {
         for (let i = 0; i < CalorieData.details.length; i++) {
@@ -158,7 +158,7 @@ $('#setId').addEventListener('click', function () {
 })
 
 function render() {
-    // 目标展示
+    // show goal
     let dom = $('.bottom .left .goal')
     if (CalorieData.goal) {
         dom.style.display = 'flex'
@@ -172,7 +172,7 @@ function render() {
     }
 
 
-    // 日历展示
+    // show calendar
     const d = new Date()
     const month = d.getMonth() + 1
     let dayNum = 31
@@ -191,7 +191,7 @@ function render() {
     dom.innerHTML = days.join('')
 
 
-    // detail展示,并且只展示今天的
+    // show selected date detail
     const someDayDetail = CalorieData.details.filter(x => {
         return x.day == currentChooseDay
     })
@@ -203,7 +203,7 @@ function render() {
                 </div>`
     }).join('')
 
-    // 今天的卡路里数值展示
+    // selected date calorie
     let todayCalorie = 0
     someDayDetail.forEach(x => {
         if (x.flag == '+') {
